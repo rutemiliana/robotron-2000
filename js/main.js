@@ -3,13 +3,22 @@ subtrair = document.querySelector("#subtrair")
 somar = document.querySelector("#somar")
 braco = document.querySelector("#braco")
 
-somar.addEventListener("click", (evento) =>{
-    braco.value = parseInt(braco.value) + 1 ;
-}) //função anonima
+const controle = document.querySelectorAll(".controle-ajuste")
 
-subtrair.addEventListener("click", (evento) =>{
-    braco.value = parseInt(braco.value) - 1 ;
-}) 
+controle.forEach( (elemento) => { 
+    elemento.addEventListener("click" , (evento) => {
+        manipulaDados(evento.target.textContent)
+    })
+})
+
+function manipulaDados(operacao){
+    if(operacao == "+"){
+        braco.value = parseInt(braco.value) + 1 ;
+
+    } else {
+        braco.value = parseInt(braco.value) - 1 ;
+    }
+}
 
 
 
@@ -19,3 +28,8 @@ function dizOi(nome){
 }
 
 dizOi("Jabulani")
+
+/*
+pegar valores de:
+input = value
+button = textContent*/
